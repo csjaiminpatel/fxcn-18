@@ -14,20 +14,33 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "importHelpers": true,
+    "skipDefaultLibCheck": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["ES2022", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@angular/*": ["./node_modules/@angular/*"],
+      "@orion/environment": ["apps/orion/src/environments/environment.ts"],
+      "@orion-platform/core": ["libs/core/src/index.ts"],
+      "@orion-platform/shared": ["libs/shared/src/index.ts"],
+      "@orion-platform/workflow/common": ["libs/workflow/common/src/index.ts"],
+      "@orion-platform/workflow/symbol-palette": ["libs/workflow/symbol-palette/src/index.ts"],
+      "@orion-platform/workflow/diagram": ["libs/workflow/diagram/src/index.ts"],
+      "@orion-platform/dynamic-form-builder": ["libs/dynamic-form-builder/src/index.ts"],
+      "@orion-platform/datagrid": ["libs/datagrid/src/index.ts"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "exclude": ["node_modules", "tmp"]
 }
